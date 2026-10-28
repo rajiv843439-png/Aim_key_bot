@@ -1,0 +1,21 @@
+services:
+  - type: worker
+    name: rajiv-referral-key-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: FIREBASE_DB_URL
+        value: https://kanav-3c195-default-rtdb.firebaseio.com
+      - key: FIREBASE_AUTH_TOKEN
+        sync: false
+      - key: REFERRALS_PER_KEY
+        value: "3"
+      - key: KEY_PREFIX
+        value: RAJIV
+      - key: KEY_LENGTH
+        value: "16"
